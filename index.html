@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Private offline CBSE practice-paper generator and answer checker." />
+    <title>CBSE Exam Buddy</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__inner">
+        <span class="eyebrow">PRIVATE • OFFLINE • NO API KEY</span>
+        <h1>CBSE Exam Buddy</h1>
+        <p>Create a practice paper from your chapter notes, complete it with a timer, and receive instant keyword-based feedback.</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="setup" class="panel">
+        <div class="section-heading">
+          <div><span class="step">Step 1</span><h2>Set up your practice paper</h2></div>
+          <p>Your notes stay in this browser.</p>
+        </div>
+
+        <form id="setup-form">
+          <div class="grid two">
+            <label>Class<input id="grade" value="Class 5" required /></label>
+            <label>Subject<input id="subject" value="Science" required /></label>
+          </div>
+          <label>Chapters or topics<textarea id="topics" rows="3" placeholder="Plants; Food and Health; The Human Body" required></textarea></label>
+          <label>Study notes<textarea id="notes" rows="9" placeholder="Paste the important definitions, facts and explanations from your textbook here." required></textarea></label>
+          <label class="file-label">Or load notes from a text file<input id="notes-file" type="file" accept=".txt,.md,text/plain,text/markdown" /></label>
+          <div class="grid two">
+            <label>Number of questions<select id="question-count"><option>10</option><option selected>15</option><option>20</option><option>30</option></select></label>
+            <label>Duration<select id="duration"><option value="20">20 minutes</option><option value="30" selected>30 minutes</option><option value="45">45 minutes</option><option value="60">60 minutes</option></select></label>
+          </div>
+          <p id="setup-error" class="error" role="alert"></p>
+          <button class="primary" type="submit">Generate practice paper</button>
+        </form>
+      </section>
+
+      <section id="exam" class="hidden">
+        <div class="exam-bar">
+          <div><span id="exam-label" class="eyebrow dark"></span><h2>Your practice paper</h2></div>
+          <div class="timer"><span>Time left</span><strong id="timer">30:00</strong></div>
+        </div>
+        <div id="questions"></div>
+        <div class="actions"><button id="start-over" class="secondary" type="button">Start over</button><button id="submit-exam" class="primary" type="button">Submit answers</button></div>
+      </section>
+
+      <section id="results" class="hidden">
+        <div class="score-card"><span>Your score</span><strong id="score"></strong><p id="score-message"></p></div>
+        <div id="feedback"></div>
+        <div class="actions"><button id="new-paper" class="primary" type="button">Create another paper</button></div>
+      </section>
+    </main>
+
+    <footer>CBSE Exam Buddy • Runs completely in your browser</footer>
+    <script src="app.js"></script>
+  </body>
+</html>
